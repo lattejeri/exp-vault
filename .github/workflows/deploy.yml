@@ -21,8 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Clone PaperMod Theme
-        run: git clone --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+      - name: Clone Risotto Theme
+        run: git clone --depth=1 https://github.com/joeroe/risotto.git themes/risottoerMod.git themes/PaperMod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
