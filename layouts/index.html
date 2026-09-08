@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ if .Content }}
+    <div class="index-intro">
+      {{ .Content }}
+    </div>
+  {{ end }}
+
+  <div class="vault-grid">
+    {{ range (where .Site.RegularPages "Type" "in" (slice "posts" "post")) }}
+      <article class="vault-card">
+        <h3 class="vault-card-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        <time class="vault-card-date">{{ .Date.Format "2006-01-02" }}</time>
+        <p class="vault-card-summary">
+          {{ .Summary | plainify | truncate 120 }}
+        </p>
+        <a class="vault-card-cta" href="{{ .RelPermalink }}">[ read entry ]</a>
+      </article>
+    {{ end }}
+  </div>
+{{ end }}
