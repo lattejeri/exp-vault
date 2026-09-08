@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Clone Risotto Theme
-        run: git clone --depth=1 https://github.com/joeroe/risotto.git themes/risottoerMod.git themes/PaperMod
+        run: git clone --depth=1 https://github.com/joeroe/risotto.git themes/risotto
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
