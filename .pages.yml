@@ -1,0 +1,34 @@
+media:
+  input: static/images
+  output: /images
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: content/posts
+    filename: "{year}-{month}-{day}-{slug}.md"
+    view:
+      fields: [title, date, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: summary
+        label: Summary
+        type: string
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: body
+        label: Content
+        type: rich-text
