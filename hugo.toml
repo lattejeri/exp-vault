@@ -1,12 +1,13 @@
-baseURL = 'https://latterjeri.github.io/exp-vault/'
+baseURL = 'https://lattejeri.github.io/exp-vault/'
 languageCode = 'en-us'
 title = 'EXP Vault'
 theme = 'PaperMod'
 
 [params]
-  homeInfoParams:
-    Title = "EXP Vault"
-    Content = "Personal archive, notes, and projects."
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
+ShowReadingTime = true
+ShowShareButtons = false
+ShowPostNavLinks = true
+
+[params.homeInfoParams]
+Title = "EXP Vault"
+Content = "Personal archive, notes, and projects."
