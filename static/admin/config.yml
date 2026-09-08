@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: lattejeri/exp-vault
+  branch: main
+
+# Enable local file editing without Git auth in supported browsers
+local_backend: true
+
+# Media uploads
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "yaml-frontmatter"
+    extension: "md"
+    summary: "{{title}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "Drafts"
+        field: "draft"
+        pattern: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, choose_url: true }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Summary", name: "summary", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page Intro"
+        name: "home"
+        file: "content/_index.md"
+        format: "yaml-frontmatter"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: true }
+          - { label: "Body", name: "body", widget: "markdown", required: false }

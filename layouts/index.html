@@ -7,15 +7,38 @@
 
   <div class="vault-grid">
     {{ range (where .Site.RegularPages "Type" "in" (slice "posts" "post")) }}
+      {{ $img := "" }}
+      {{ with .Params.thumbnail }}
+        {{ $img = . }}
+      {{ else with .Params.cover }}
+        {{ $img = . }}
+      {{ else with .Params.image }}
+        {{ $img = . }}
+      {{ else }}
+        {{ with .Resources.ByType "image" }}
+          {{ $img = (index . 0).RelPermalink }}
+        {{ end }}
+      {{ end }}
+
       <article class="vault-card">
-        <h3 class="vault-card-title">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h3>
-        <time class="vault-card-date">{{ .Date.Format "2006-01-02" }}</time>
-        <p class="vault-card-summary">
-          {{ .Summary | plainify | truncate 120 }}
-        </p>
-        <a class="vault-card-cta" href="{{ .RelPermalink }}">[ read entry ]</a>
+        <a href="{{ .RelPermalink }}" class="vault-card-link">
+          <div class="vault-card-thumbnail">
+            {{ if $img }}
+              {{ $src := $img }}
+              {{ if not (hasPrefix $img "http") }}
+                {{ $src = (strings.TrimPrefix "/" $img | relURL) }}
+              {{ end }}
+              <img src="{{ $src }}" alt="{{ .Title }}" loading="lazy" class="vault-card-img" />
+            {{ else }}
+              <div class="vault-card-placeholder">
+                <span class="placeholder-icon">&gt;_</span>
+              </div>
+            {{ end }}
+          </div>
+          <div class="vault-card-content">
+            <h3 class="vault-card-title">{{ .Title }}</h3>
+          </div>
+        </a>
       </article>
     {{ end }}
   </div>
