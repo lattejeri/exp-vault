@@ -1,6 +1,6 @@
 baseURL = 'https://lattejeri.github.io/exp-vault/'
 languageCode = 'en-us'
-title = 'EXP Vault'
+title = 'Jeremy Chapple'
 theme = 'terminal'
 
 [params]
