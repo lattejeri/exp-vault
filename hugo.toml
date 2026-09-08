@@ -1,13 +1,20 @@
 baseURL = 'https://lattejeri.github.io/exp-vault/'
 languageCode = 'en-us'
 title = 'EXP Vault'
-theme = 'PaperMod'
+theme = 'risotto'
 
-[params]
-ShowReadingTime = true
-ShowShareButtons = false
-ShowPostNavLinks = true
+# Automatically adds content folders (like /posts/) to the navigation menu
+sectionPagesMenu = 'main'
 
-[params.homeInfoParams]
-Title = "EXP Vault"
-Content = "Personal archive, notes, and projects."
+[params.theme]
+palette = 'tokyo-night-dark'
+
+[params.about]
+title = 'EXP Vault'
+description = 'Personal archive, notes, and projects.'
+logo = '⚡'
+
+[[params.socialLinks]]
+icon = 'fab fa-github'
+title = 'GitHub'
+url = 'https://github.com/lattejeri'
