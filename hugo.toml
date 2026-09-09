@@ -13,7 +13,7 @@ theme = 'terminal'
 
 [languages]
   [languages.en]
-    title = "EXP Vault"
+    title = "Jeremy Chapple"
     subtitle = "Personal archive, notes, and projects."
     keywords = ""
     copyright = ""
@@ -22,11 +22,5 @@ theme = 'terminal'
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "EXP Vault"
+      logoText = "Jeremy Chapple"
       logoHomeLink = "/"
-
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "posts"
-        name = "Posts"
-        url = "/posts"
